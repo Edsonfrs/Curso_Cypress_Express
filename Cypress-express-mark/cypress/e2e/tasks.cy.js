@@ -2,6 +2,16 @@
 
 describe('tarefas', ()=> {
 
+    let testData;
+
+    before(() => {
+        cy.fixture('tasks').then(t => {
+            testData = t
+        })
+    })
+
+    
+
     context('cadastro', () => {
 
         it('deve cadastrar uma nova tarefa', ()=> {
@@ -18,10 +28,7 @@ describe('tarefas', ()=> {
     
         it('não deve permitir tarefa duplicada', ()=> {
     
-            const task = {
-                name: 'Estudar OO em Java',
-                is_done: false
-            }
+            const task = testData.dup
     
             cy.removeTaskByName(task.name)
             cy.postTask(task)
@@ -52,7 +59,7 @@ describe('tarefas', ()=> {
             cy.removeTaskByName(task.name)
             cy.postTask(task)
 
-            cy.visit('http://localhost:8080')
+            cy.visit('/')
 
             cy.contains('p', task.name)
                 .parent()
@@ -78,7 +85,8 @@ describe('tarefas', ()=> {
             cy.removeTaskByName(task.name)
             cy.postTask(task)
 
-            cy.visit('http://localhost:8080')
+            cy.visit('/')
+            
 
             cy.contains('p', task.name)
                 .parent()
