@@ -8,6 +8,7 @@ Curso de testes automatizados usando Cypress.
 * cypress: 12.2.0
 * Node: 18.13.0
 * Yarn: 1.22.19
+* Allure Report
 
 
 ## Instrutor(es)
@@ -24,3 +25,5 @@ Edson souza
 
 * [Linkedin](https://www.linkedin.com/in/edsonfrs/)
 * [GitHub](https://github.com/Edsonfrs)
+
+
